@@ -1,0 +1,65 @@
+﻿@model Seller.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Content/cart.css" rel="stylesheet" />
+</head>
+<h2>@Model.pName</h2>
+
+<div>
+
+    <hr />
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-md-5">
+            <img src="@Model.pURL" width="" height="300"/>
+
+        </div>
+        <div class="col-md-7">
+            <form action="/" method="post">
+                <dl class="dl-horizontal">
+                    <dt>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.pName)
+                    </dd>
+                    <dt>
+                        Gia
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.pGia) $
+                    </dd>
+                    <div style="padding: 10px 0 10px 0;" class="">
+                        <input class="form-control" type="number" min="1" max="@Model.pSoLuong" step="1" value="1">
+                    </div>
+
+                    <button class=" btn btn-danger" type="submit">
+                        Them vao gio hang
+                    </button>
+            </form>
+            
+                @*<dt>
+            @Html.DisplayNameFor(model => model.pURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pURL)
+        </dd>*@
+
+            </dl>
+        </div>
+
+    </div>
+
+       
+</div>
+<div class="fixed-bottom">
+    <p>
+        <a href="/Home/Index">Back to home</a>
+    </p>
+</div>

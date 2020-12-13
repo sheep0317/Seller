@@ -1,0 +1,91 @@
+﻿@*@model IEnumerable<Seller.Models.Product>*@
+@model PagedList.IPagedList<Seller.Models.Product>
+@using PagedList.Mvc;
+<head>
+    <link href="~/Content/cart.css" rel="stylesheet" />
+</head>
+@*@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+<h2>San Pham</h2>
+
+@*<table class="table">
+    <tr>
+        <th>
+                @Html.DisplayNameFor(model => model.pName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pSoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pImg)
+            </th>
+
+
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pSoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pImg)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.pID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.pID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.pID })
+            </td>
+
+        </tr>
+    
+
+</table>*@
+
+<div class=" container">
+    <div class="cart_grid">
+        @foreach (var item in Model)
+        {
+            <a class="cart_card" href="\Category\Details\@item.pID">
+                <div class="cart_cardTitle">
+                    <strong>@item.pName</strong>
+                </div>
+                <div class="cart_cardImg">
+                    <img src="@item.pURL" />
+                </div>
+                <div class="cart_cardNumber">
+                    @item.pGia $
+                </div>
+                <div class="cart_cardFoot">
+                    <p>XEM THEM</p>
+                </div>
+                @*@Html.ActionLink("Xem Them", "Details", new { id = item.pID })*@
+            </a>
+        }
+
+    </div>
+</div>
+
+
+<div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+

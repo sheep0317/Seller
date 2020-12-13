@@ -1,0 +1,118 @@
+﻿
+
+
+@{
+    ViewBag.Title = "userPage";
+}
+
+<head>
+    <link href="~/Content/Seft.css" rel="stylesheet" type="text/css" />
+
+</head>
+<span class="row-cols-4">
+    &nbsp;
+</span>
+<div>
+    @if (Seller.Models.GlobalVari.isNoti)
+    {
+        if (Seller.Models.GlobalVari.isLogSuccess)
+        {
+            <div class="alert alert-success alert-dismissible fade show ">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Login Success</strong>
+            </div>
+            Seller.Models.GlobalVari.isNoti = false;
+
+        }
+
+    }
+</div>
+
+
+<body>
+    @if (Seller.Models.GlobalVari.userLog is null || Seller.Models.GlobalVari.userLog == "")
+    {
+<a href="/Home/Index">relogin please</a> }
+            else
+             if (Seller.Models.GlobalVari.publicInfo.Role != "0" && Seller.Models.GlobalVari.isLogSuccess == true)
+            {
+<div class="btn btn-danger">
+    <a style="text-decoration:none; color:white" href="/">Back to home</a>
+</div> }
+            else
+            {
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-4 ">
+            <form action="/upload/avatarChange" method="post">
+                <label for="image">
+                    <input type="file" name="image" id="image" style="display:none;" />
+                    <img class="img-fluid rounded-circle" style="width:180px;" src="~/Data/avatar.jpg" />
+                </label>
+            </form>
+            <h2>@Seller.Models.GlobalVari.userLog</h2>
+        </div>
+        <div class="col-md-8">
+            <div class="right__cards">
+                <a class="right__card" href="/Product/addProduct">
+                    <div class="right__cardTitle">
+                        Quản Lý tài khoản
+                    </div>
+                    <div class="right__cardNumber">
+                        32
+                    </div>
+                    <div class="right__cardDesc">
+                        continue &nbsp;<img src="~/Data/arrow-right.svg" alt="">
+                    </div>
+                </a>
+                <a class="right__card" href="/Product/editProduct">
+                    <div class="right__cardTitle">
+
+                    </div>
+                    <div class="right__cardNumber">
+
+                    </div>
+                    <div class="right__cardDesc">
+
+                    </div>
+                </a>
+                <a class="right__card" href="#">
+                    <div class="right__cardTitle">
+
+                    </div>
+                    <div class="right__cardNumber">
+
+                    </div>
+                    <div class="right__cardDesc">
+
+                    </div>
+                </a>
+                <a class="right__card" href="#">
+                    <div class="right__cardTitle">
+
+                    </div>
+                    <div class="right__cardNumber">
+
+                    </div>
+                    <div class="right__cardDesc">
+
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                <form class="navbar-form col-lg-6 center-block" action="/Login/LogOut" method="post">
+                    <a href="/Home/Index">
+                        <button class="btn btn-danger" type="submit" name=" btnLogout">LogOut</button>
+                    </a>
+                </form>}
+
+
+</body>
+<footer>
+</footer>
+
+
+
+

@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Signup";
+
+}
+@model Seller.Models.Users
+@Html.ValidationSummary(true)
+
+@if (Request["Password"] != Request["uRepass"])
+{
+    <div class="alert alert-danger">Password is Missmatch</div>
+}
+<body>
+    <div class="container-fluid">
+        <div class=" jumbotron">
+            <h2>Sign Up</h2>
+            <p>sign up is the best way to follow us and user all feature</p>
+        </div>
+    </div>
+    <div style="font-family: 'Comic Sans MS'; margin:auto; align-content:center">
+        <div class="row">
+            <div class="col-lg-6">
+                @using (Html.BeginForm("Signup", "Login"))
+                {
+                    <form class="navbar-form col-lg-12 center-block " action="/Login/Signup" method="post">
+
+
+                        <p>
+                            <label>username: </label>
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @placeholder = "username" })
+                            @Html.ValidationMessageFor(m => m.Username)
+                        </p>
+                        <p>
+                            <label>email: </label>
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @placeholder = "example@ex.ample", @type = "email" })
+                            @Html.ValidationMessageFor(m => m.email)
+                        </p>
+                        <p>
+                            <label>nickname: </label>
+                            @Html.TextBoxFor(m => m.nickname, new { @class = "form-control", @placeholder = "nickname" })
+                            @Html.ValidationMessageFor(m => m.nickname)
+                        </p>
+
+                        <p>
+                            <label>password: </label>
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "password", @type = "password" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </p>
+                        <p>
+                            <label>Repassword: </label>
+                            <input class="form-control" type="password" placeholder="repassword" name="uRepass" />
+                        </p>
+
+                        <p>
+                            <label for="type">You Are?</label>
+                            <select name="type" class="form-control">
+                                <option value="User">Normal User</option>
+                                <option value="Seller">Seller</option>
+                            </select>
+                        </p>
+                        <p style="margin:auto;">
+                            <button class="btn btn-danger" type="submit">Sign Up</button>
+                        </p>
+                        <p></p>
+                    </form>
+                }
+            </div>
+            <div class="col-sm-6 ">
+                <button data-toggle="modal" data-target="#login" class="btn btn-danger">
+                   Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

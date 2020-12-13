@@ -1,0 +1,55 @@
+﻿@model PagedList.IPagedList<Seller.Models.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <meta charset="utf-8" />
+    <title>First Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <div class="jumbotron text-center" style="margin-bottom:0; color:white; background-image:url(/Data/watch.png);background-size:cover;
+ background-repeat: no-repeat;">
+        <h1>Come With Us </h1>
+        <p>Choose the bezt watch for U</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.Action("Left", "Partial")
+        </div>
+        <div class="col-sm-10">
+            @Html.Action("Index", "Category")
+        </div>
+        @*<div class="col-10">
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                            </tr>
+                            @foreach (var user in ViewBag.users)
+                            {
+                                <tr>
+                                    <td>@user.Username</td>
+                                    <td>@user.Password</td>
+
+                                </tr>
+                            }
+                        </thead>
+                    </table>
+
+                </div>
+
+
+            </div>*@
+    </div>
+
+
+
+
+</body>
+
+

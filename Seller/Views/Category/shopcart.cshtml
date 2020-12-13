@@ -1,0 +1,27 @@
+﻿
+<h2>Gio Hang</h2>
+
+<table class="table table-hover">
+    <thead style="text-align:center;">
+        <th>STT</th>
+        <th>Ten San Pham</th>
+        <th>Hinh Anh</th>
+        <th>So Luong</th>
+        <th>Gia Ban</th>
+        <th> Xoa </th>
+    </thead>
+    <tbody style="text-align:center;">
+        <tr>
+            <td style="padding: 70px 0;">1</td>
+            <td style="padding: 70px 0;">Casio 11111</td>
+            <td><img src="https://casiovietnam.net/upload/image/data/AE-1200WHD-1AV-W300.png" alt="Casio" style="width:100px;" /></td>
+            <td style="padding: 70px 0; " id="soluong">20</td>
+            <td style="padding: 70px 0;"id="gia"></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    var i = document.getElementById("soluong").innerHTML;
+    document.getElementById("gia").innerHTML = Number(i)*20;
+</script>
